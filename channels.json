@@ -21,11 +21,6 @@
       "silence_days": 3
     },
     {
-      "platform": "tiktok",
-      "name": "TikTok (пример)",
-      "handle": "@tiktok"
-    },
-    {
       "platform": "youtube",
       "handle": "@mrbeast"
     }
