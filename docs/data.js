@@ -1,5 +1,5 @@
 window.CHANNEL_DATA = {
- "generated_at": "2026-11-14T20:02:23.731507+00:00",
+ "generated_at": "2026-11-14T20:13:41.766797+00:00",
  "settings": {
   "silence_days": 2,
   "dormant_days": 7
@@ -15,11 +15,11 @@ window.CHANNEL_DATA = {
    "last_post": "2026-11-09T17:08:54+00:00",
    "last_title": "MAX POWER: Highlights from NASA’s First-Ever Tech Expo and Air Show",
    "last_url": "https://www.youtube.com/watch?v=eXrd5sNdacA",
-   "days_since": 5.12,
+   "days_since": 5.13,
    "posts_7d": 3,
-   "posts_30d": 13,
+   "posts_30d": 12,
    "history": [
-    1,
+    0,
     0,
     0,
     0,
@@ -32,8 +32,8 @@ window.CHANNEL_DATA = {
     0,
     0,
     0,
-    0,
     1,
+    0,
     0,
     0,
     0,
@@ -63,7 +63,7 @@ window.CHANNEL_DATA = {
    "last_post": "2026-11-13T14:00:08+00:00",
    "last_title": "Making Gunpowder From Scratch",
    "last_url": "https://www.youtube.com/shorts/V8rT6UI3Crg",
-   "days_since": 1.25,
+   "days_since": 1.26,
    "posts_7d": 2,
    "posts_30d": 9,
    "history": [
@@ -111,7 +111,7 @@ window.CHANNEL_DATA = {
    "last_post": "2026-11-13T14:00:08+00:00",
    "last_title": "Making Gunpowder From Scratch",
    "last_url": "https://www.youtube.com/shorts/V8rT6UI3Crg",
-   "days_since": 1.25,
+   "days_since": 1.26,
    "posts_7d": 2,
    "posts_30d": 9,
    "history": [
