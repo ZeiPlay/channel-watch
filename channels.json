@@ -6,11 +6,6 @@
   "channels": [
     {
       "platform": "youtube",
-      "name": "Veritasium",
-      "handle": "@veritasium"
-    },
-    {
-      "platform": "youtube",
       "name": "Пример по ID канала",
       "channel_id": "UCHnyfMqiRRG1u-2MsSQLbXA",
       "silence_days": 3
