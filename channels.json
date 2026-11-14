@@ -26,11 +26,6 @@
       "handle": "@tiktok"
     },
     {
-      "platform": "instagram",
-      "name": "Instagram (пример)",
-      "handle": "instagram"
-    },
-    {
       "platform": "youtube",
       "handle": "@mrbeast"
     }
