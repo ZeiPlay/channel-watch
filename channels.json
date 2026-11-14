@@ -6,11 +6,6 @@
   "channels": [
     {
       "platform": "youtube",
-      "name": "NASA",
-      "handle": "@NASA"
-    },
-    {
-      "platform": "youtube",
       "name": "Veritasium",
       "handle": "@veritasium"
     },
