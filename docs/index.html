@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Channel Watch</title>
+<style>
+  :root {
+    --bg: #f6f7f9; --card: #ffffff; --text: #16181d; --muted: #646b78; --line: #e3e6ec;
+    --ok: #12805c; --ok-bg: #e3f5ee;
+    --warn: #a15c00; --warn-bg: #fdf0d9;
+    --bad: #b42318; --bad-bg: #fde8e6;
+    --idle: #596072; --idle-bg: #eceef3;
+    --bar: #4f6bed; --bar-off: #dfe3ee;
+    --yt: #e11d1d; --tt: #111111; --ig: #c13584;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #101216; --card: #181b21; --text: #eceef2; --muted: #98a0ae; --line: #2a2e37;
+      --ok: #4cd1a1; --ok-bg: #12332a;
+      --warn: #f2b45a; --warn-bg: #3a2b10;
+      --bad: #ff8a7d; --bad-bg: #3d1a17;
+      --idle: #a3abbb; --idle-bg: #262a33;
+      --bar: #8196ff; --bar-off: #2a2f3b;
+      --tt: #e8e8e8;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 15px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 24px 16px 48px; }
+  header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px; }
+  h1 { font-size: 22px; margin: 0; }
+  .updated { color: var(--muted); font-size: 13px; }
+
+  .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 20px 0; }
+  .stat { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+  .stat b { display: block; font-size: 28px; line-height: 1.1; }
+  .stat span { color: var(--muted); font-size: 13px; }
+  .stat.bad b { color: var(--bad); } .stat.ok b { color: var(--ok); }
+
+  .controls { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; align-items: center; }
+  .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--card); }
+  .seg button {
+    border: 0; background: transparent; color: var(--text); padding: 8px 12px; cursor: pointer;
+    font: inherit; font-size: 14px; border-right: 1px solid var(--line);
+  }
+  .seg button:last-child { border-right: 0; }
+  .seg button[aria-pressed="true"] { background: var(--text); color: var(--bg); }
+  select, input[type=search] {
+    font: inherit; font-size: 14px; padding: 8px 10px; border-radius: 10px;
+    border: 1px solid var(--line); background: var(--card); color: var(--text);
+  }
+  .spacer { flex: 1; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+  .card.silent, .card.dormant { border-color: var(--bad); }
+  .card.unsupported, .card.error { opacity: .8; }
+  .top { display: flex; justify-content: space-between; gap: 10px; align-items: flex-start; }
+  .name { font-weight: 600; font-size: 16px; word-break: break-word; }
+  .name a { color: inherit; text-decoration: none; } .name a:hover { text-decoration: underline; }
+  .meta { display: flex; align-items: center; gap: 6px; color: var(--muted); font-size: 13px; margin-top: 2px; }
+  .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+  .dot.youtube { background: var(--yt); } .dot.tiktok { background: var(--tt); } .dot.instagram { background: var(--ig); }
+  .pill { font-size: 12px; font-weight: 600; padding: 4px 9px; border-radius: 999px; white-space: nowrap; }
+  .pill.ok { color: var(--ok); background: var(--ok-bg); }
+  .pill.silent { color: var(--warn); background: var(--warn-bg); }
+  .pill.dormant { color: var(--bad); background: var(--bad-bg); }
+  .pill.unsupported, .pill.error, .pill.unknown { color: var(--idle); background: var(--idle-bg); }
+
+  .last { font-size: 14px; }
+  .last .when { font-weight: 600; }
+  .last .title { color: var(--muted); display: block; margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .last .title a { color: inherit; }
+
+  .bars { display: flex; align-items: flex-end; gap: 2px; height: 36px; }
+  .bars i { flex: 1; background: var(--bar-off); border-radius: 2px; min-height: 3px; }
+  .bars i.on { background: var(--bar); }
+  .bars-cap { display: flex; justify-content: space-between; color: var(--muted); font-size: 11px; margin-top: -6px; }
+  .nums { display: flex; gap: 18px; font-size: 13px; color: var(--muted); }
+  .nums b { color: var(--text); }
+  .note { color: var(--muted); font-size: 13px; }
+
+  .empty { text-align: center; color: var(--muted); padding: 48px 0; }
+  .banner { background: var(--warn-bg); color: var(--warn); border-radius: 10px; padding: 12px 14px; margin-top: 16px; }
+
+  .addbtn { font: inherit; font-size: 14px; font-weight: 600; padding: 8px 14px; border-radius: 10px; border: 0; background: var(--text); color: var(--bg); cursor: pointer; }
+  .panel { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px; margin-top: 16px; }
+  .panel[hidden] { display: none; }
+  .panel h2 { font-size: 16px; margin: 0 0 4px; }
+  .panel p, .panel li, .panel summary { color: var(--muted); font-size: 13px; }
+  .panel details { margin: 8px 0 12px; } .panel summary { cursor: pointer; } .panel ol { padding-left: 20px; margin: 6px 0; }
+  .panel label { display: block; font-size: 13px; color: var(--muted); margin: 10px 0 4px; }
+  .panel textarea, .panel input { width: 100%; font: inherit; font-size: 16px; padding: 10px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); color: var(--text); }
+  .panel textarea { min-height: 160px; resize: vertical; margin-top: 8px; }
+  .panel .row { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin-top: 10px; }
+  .panel button.primary { font: inherit; font-size: 15px; font-weight: 600; padding: 9px 18px; border-radius: 10px; border: 0; background: var(--bar); color: #fff; cursor: pointer; }
+  .panel button.primary:disabled { opacity: .6; }
+  .panel button.link { background: none; border: 0; color: var(--muted); text-decoration: underline; cursor: pointer; font: inherit; font-size: 13px; padding: 0; }
+  .msg { margin-top: 10px; font-size: 14px; white-space: pre-line; }
+  .msg .err { color: var(--bad); } .msg .ok { color: var(--ok); }
+  .right { display: flex; align-items: center; gap: 4px; }
+  .rm { display: none; border: 0; background: transparent; color: var(--muted); cursor: pointer; font-size: 16px; line-height: 1; padding: 4px 7px; border-radius: 6px; }
+  body.can-edit .rm { display: inline-flex; }
+  .rm:hover { color: var(--bad); background: var(--bad-bg); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Channel Watch</h1>
+    <div class="updated" id="updated"></div>
+  </header>
+
+  <div class="summary" id="summary"></div>
+
+  <div class="controls">
+    <div class="seg" id="platforms" role="group" aria-label="Платформа"></div>
+    <div class="seg" id="statuses" role="group" aria-label="Статус"></div>
+    <div class="spacer"></div>
+    <input type="search" id="q" placeholder="Поиск по названию" aria-label="Поиск">
+    <select id="sort" aria-label="Сортировка">
+      <option value="silence">Сначала молчащие</option>
+      <option value="recent">Сначала свежие</option>
+      <option value="name">По названию</option>
+    </select>
+  </div>
+
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" hidden>Ничего не найдено</div>
+</div>
+
+<script src="data.js"></script>
+<script src="manage.js"></script>
+<script>
+(function () {
+  var D = window.CHANNEL_DATA;
+  var PLAT = { all: "Все", youtube: "YouTube", tiktok: "TikTok", instagram: "Instagram" };
+  var STAT = { all: "Все", problem: "Молчат", ok: "В норме" };
+  var STATUS_LABEL = { ok: "В норме", silent: "Молчит", dormant: "Давно молчит", unsupported: "Не подключено", error: "Ошибка", unknown: "Нет данных" };
+  var state = { platform: "all", status: "all", sort: "silence", q: "" };
+
+  if (!D) {
+    document.querySelector(".wrap").insertAdjacentHTML("beforeend",
+      '<div class="banner">Нет файла data.js. Запустите <code>python check.py</code> (или <code>python check.py --demo</code>).</div>');
+    return;
+  }
+
+  function plural(n, a, b, c) {
+    n = Math.abs(n) % 100; var m = n % 10;
+    if (n > 10 && n < 20) return c;
+    if (m > 1 && m < 5) return b;
+    return m === 1 ? a : c;
+  }
+  function ago(days) {
+    if (days == null) return "—";
+    if (days < 1 / 24) return "только что";
+    if (days < 1) { var h = Math.floor(days * 24); return h + " " + plural(h, "час", "часа", "часов") + " назад"; }
+    var d = Math.floor(days); return d + " " + plural(d, "день", "дня", "дней") + " назад";
+  }
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+
+  var generated = new Date(D.generated_at);
+  function renderUpdated() {
+    var mins = Math.round((Date.now() - generated) / 60000);
+    var t = mins < 1 ? "только что" : mins < 60 ? mins + " мин назад" : Math.round(mins / 60) + " ч назад";
+    document.getElementById("updated").textContent = "Обновлено: " + t + " · " + generated.toLocaleString("ru-RU");
+  }
+
+  function isProblem(c) { return c.status === "silent" || c.status === "dormant"; }
+
+  function renderSummary() {
+    var ch = D.channels, tracked = ch.filter(function (c) { return c.status === "ok" || isProblem(c); });
+    var s = document.getElementById("summary"); s.textContent = "";
+    [["Каналов", ch.length, ""], ["Молчат", ch.filter(isProblem).length, "bad"],
+     ["В норме", ch.filter(function (c) { return c.status === "ok"; }).length, "ok"],
+     ["Видео за 7 дней", tracked.reduce(function (a, c) { return a + c.posts_7d; }, 0), ""]]
+    .forEach(function (x) {
+      var d = el("div", "stat " + x[2]); d.appendChild(el("b", null, x[1])); d.appendChild(el("span", null, x[0])); s.appendChild(d);
+    });
+  }
+
+  function seg(id, map, key) {
+    var box = document.getElementById(id); box.textContent = "";
+    Object.keys(map).forEach(function (k) {
+      var b = el("button", null, map[k]); b.type = "button";
+      b.setAttribute("aria-pressed", state[key] === k);
+      b.onclick = function () { state[key] = k; seg(id, map, key); render(); };
+      box.appendChild(b);
+    });
+  }
+
+  function card(c) {
+    var n = el("div", "card " + c.status);
+    var top = el("div", "top"), left = el("div");
+    var name = el("div", "name");
+    if (c.url && c.url !== "#") { var a = el("a", null, c.name); a.href = c.url; a.target = "_blank"; a.rel = "noopener"; name.appendChild(a); }
+    else name.textContent = c.name;
+    var meta = el("div", "meta"); meta.appendChild(el("span", "dot " + c.platform));
+    meta.appendChild(el("span", null, PLAT[c.platform] + (c.handle ? " · " + c.handle : "")));
+    left.appendChild(name); left.appendChild(meta);
+    var right = el("div", "right");
+    right.appendChild(el("span", "pill " + c.status, STATUS_LABEL[c.status] || c.status));
+    var rm = el("button", "rm", "\u2715"); rm.type = "button"; rm.title = "Удалить канал";
+    rm.setAttribute("aria-label", "Удалить канал " + c.name);
+    rm.onclick = function () { if (window.ChannelManage) window.ChannelManage.remove(c, n); };
+    right.appendChild(rm);
+    top.appendChild(left); top.appendChild(right);
+    n.appendChild(top);
+
+    if (c.last_post) {
+      var last = el("div", "last"); var w = el("span", "when", "Последнее видео: " + ago(c.days_since));
+      last.appendChild(w);
+      if (c.last_title) {
+        var t = el("span", "title");
+        if (c.last_url && c.last_url !== "#") { var l = el("a", null, c.last_title); l.href = c.last_url; l.target = "_blank"; l.rel = "noopener"; t.appendChild(l); }
+        else t.textContent = c.last_title;
+        last.appendChild(t);
+      }
+      n.appendChild(last);
+      var max = Math.max.apply(null, c.history.concat([1])), bars = el("div", "bars");
+      bars.setAttribute("role", "img"); bars.setAttribute("aria-label", "Публикации за 30 дней: " + c.posts_30d);
+      c.history.forEach(function (v) { var i = el("i", v ? "on" : ""); if (v) i.style.height = Math.max(12, v / max * 100) + "%"; bars.appendChild(i); });
+      n.appendChild(bars);
+      var cap = el("div", "bars-cap"); cap.appendChild(el("span", null, "30 дней назад")); cap.appendChild(el("span", null, "сегодня")); n.appendChild(cap);
+      var nums = el("div", "nums");
+      [["За 7 дней", c.posts_7d], ["За 30 дней", c.posts_30d], ["Порог", c.silence_days + " " + plural(c.silence_days, "день", "дня", "дней")]].forEach(function (x) {
+        var s = el("span", null, x[0] + ": "); s.appendChild(el("b", null, x[1])); nums.appendChild(s);
+      });
+      n.appendChild(nums);
+    } else {
+      n.appendChild(el("div", "note", c.message || "Нет данных"));
+    }
+    return n;
+  }
+
+  function render() {
+    var list = D.channels.filter(function (c) {
+      if (state.platform !== "all" && c.platform !== state.platform) return false;
+      if (state.status === "problem" && !isProblem(c)) return false;
+      if (state.status === "ok" && c.status !== "ok") return false;
+      if (state.q && c.name.toLowerCase().indexOf(state.q.toLowerCase()) < 0) return false;
+      return true;
+    });
+    list.sort(function (a, b) {
+      if (state.sort === "name") return a.name.localeCompare(b.name, "ru");
+      var da = a.days_since == null ? -1 : a.days_since, db = b.days_since == null ? -1 : b.days_since;
+      return state.sort === "recent" ? (da < 0) - (db < 0) || da - db : db - da;
+    });
+    var g = document.getElementById("grid"); g.textContent = "";
+    list.forEach(function (c) { g.appendChild(card(c)); });
+    document.getElementById("empty").hidden = list.length > 0;
+  }
+
+  document.getElementById("q").oninput = function (e) { state.q = e.target.value; render(); };
+  document.getElementById("sort").onchange = function (e) { state.sort = e.target.value; render(); };
+  seg("platforms", PLAT, "platform"); seg("statuses", STAT, "status");
+  renderUpdated(); renderSummary(); render();
+  setInterval(renderUpdated, 60000);
+})();
+</script>
+</body>
+</html>
