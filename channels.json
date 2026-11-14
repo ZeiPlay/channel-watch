@@ -4,10 +4,35 @@
     "dormant_days": 7
   },
   "channels": [
-    { "platform": "youtube", "name": "NASA", "handle": "@NASA" },
-    { "platform": "youtube", "name": "Veritasium", "handle": "@veritasium" },
-    { "platform": "youtube", "name": "Пример по ID канала", "channel_id": "UCHnyfMqiRRG1u-2MsSQLbXA", "silence_days": 3 },
-    { "platform": "tiktok", "name": "TikTok (пример)", "handle": "@tiktok" },
-    { "platform": "instagram", "name": "Instagram (пример)", "handle": "instagram" }
+    {
+      "platform": "youtube",
+      "name": "NASA",
+      "handle": "@NASA"
+    },
+    {
+      "platform": "youtube",
+      "name": "Veritasium",
+      "handle": "@veritasium"
+    },
+    {
+      "platform": "youtube",
+      "name": "Пример по ID канала",
+      "channel_id": "UCHnyfMqiRRG1u-2MsSQLbXA",
+      "silence_days": 3
+    },
+    {
+      "platform": "tiktok",
+      "name": "TikTok (пример)",
+      "handle": "@tiktok"
+    },
+    {
+      "platform": "instagram",
+      "name": "Instagram (пример)",
+      "handle": "instagram"
+    },
+    {
+      "platform": "youtube",
+      "handle": "@mrbeast"
+    }
   ]
 }
