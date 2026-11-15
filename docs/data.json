@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-15T10:09:51.219575+00:00",
+ "generated_at": "2026-11-15T10:15:14.195571+00:00",
  "settings": {
   "silence_days": 2,
   "dormant_days": 7
@@ -10,14 +10,14 @@
    "platform": "tiktok",
    "name": "ЛЕОН",
    "handle": "@cosmonaut_7",
-   "url": "",
-   "silence_days": null,
-   "last_post": null,
-   "last_title": "",
-   "last_url": "",
-   "days_since": null,
-   "posts_7d": 0,
-   "posts_30d": 0,
+   "url": "https://www.tiktok.com/@cosmonaut_7",
+   "silence_days": 2,
+   "last_post": "2026-11-14T08:27:31+00:00",
+   "last_title": "Дмитрий про Жесткие 90 е",
+   "last_url": "https://www.tiktok.com/@cosmonaut_7/video/7707940904769834292",
+   "days_since": 1.07,
+   "posts_7d": 3,
+   "posts_30d": 3,
    "history": [
     0,
     0,
@@ -46,26 +46,26 @@
     0,
     0,
     0,
-    0,
-    0,
+    1,
+    2,
     0
    ],
-   "status": "unsupported",
-   "message": "TikTok: добавьте секрет APIFY_TOKEN (инструкция в README)"
+   "status": "ok",
+   "message": ""
   },
   {
    "key": "tiktok:cosmonaut999",
    "platform": "tiktok",
    "name": "ЛЕОН",
    "handle": "@cosmonaut999",
-   "url": "",
-   "silence_days": null,
-   "last_post": null,
-   "last_title": "",
-   "last_url": "",
-   "days_since": null,
-   "posts_7d": 0,
-   "posts_30d": 0,
+   "url": "https://www.tiktok.com/@cosmonaut999",
+   "silence_days": 2,
+   "last_post": "2026-11-14T18:56:20+00:00",
+   "last_title": "Нагиев ургант",
+   "last_url": "https://www.tiktok.com/@cosmonaut999/video/7708102944322784533",
+   "days_since": 0.64,
+   "posts_7d": 3,
+   "posts_30d": 3,
    "history": [
     0,
     0,
@@ -94,26 +94,26 @@
     0,
     0,
     0,
-    0,
-    0,
-    0
+    1,
+    1,
+    1
    ],
-   "status": "unsupported",
-   "message": "TikTok: добавьте секрет APIFY_TOKEN (инструкция в README)"
+   "status": "ok",
+   "message": ""
   },
   {
    "key": "tiktok:fdeecwssw8y",
    "platform": "tiktok",
    "name": "МИША",
    "handle": "@fdeecwssw8y",
-   "url": "",
-   "silence_days": null,
-   "last_post": null,
-   "last_title": "",
-   "last_url": "",
-   "days_since": null,
-   "posts_7d": 0,
-   "posts_30d": 0,
+   "url": "https://www.tiktok.com/@fdeecwssw8y",
+   "silence_days": 2,
+   "last_post": "2026-11-15T08:53:47+00:00",
+   "last_title": "История побег с тюрьмы #ии #история #приколы #рек",
+   "last_url": "https://www.tiktok.com/@fdeecwssw8y/video/7708318744526867734",
+   "days_since": 0.06,
+   "posts_7d": 3,
+   "posts_30d": 3,
    "history": [
     0,
     0,
@@ -140,14 +140,14 @@
     0,
     0,
     0,
+    1,
     0,
     0,
     0,
-    0,
-    0
+    2
    ],
-   "status": "unsupported",
-   "message": "TikTok: добавьте секрет APIFY_TOKEN (инструкция в README)"
+   "status": "ok",
+   "message": ""
   },
   {
    "key": "youtube:cosmonauu",
@@ -159,7 +159,7 @@
    "last_post": "2026-11-15T08:36:17+00:00",
    "last_title": "Шоу плюшки Юра Борисов пол Оскар 🫪",
    "last_url": "https://www.youtube.com/shorts/n8e9dWajWic",
-   "days_since": 0.06,
+   "days_since": 0.07,
    "posts_7d": 8,
    "posts_30d": 15,
    "history": [
@@ -182,8 +182,8 @@
     0,
     0,
     1,
-    1,
-    3,
+    2,
+    2,
     0,
     2,
     1,
@@ -202,14 +202,14 @@
    "platform": "tiktok",
    "name": "SBERBANK",
    "handle": "@youtuporads",
-   "url": "",
-   "silence_days": null,
-   "last_post": null,
-   "last_title": "",
-   "last_url": "",
-   "days_since": null,
-   "posts_7d": 0,
-   "posts_30d": 0,
+   "url": "https://www.tiktok.com/@youtuporads",
+   "silence_days": 2,
+   "last_post": "2026-11-12T16:06:31+00:00",
+   "last_title": "#майнкрафт #musteatinmycity #minedrop Игра в профиле",
+   "last_url": "https://www.tiktok.com/@youtuporads/video/7707316992046337311",
+   "days_since": 2.76,
+   "posts_7d": 2,
+   "posts_30d": 2,
    "history": [
     0,
     0,
@@ -238,12 +238,12 @@
     0,
     0,
     0,
-    0,
+    2,
     0,
     0
    ],
-   "status": "unsupported",
-   "message": "TikTok: добавьте секрет APIFY_TOKEN (инструкция в README)"
+   "status": "silent",
+   "message": ""
   }
  ]
 }
