@@ -553,6 +553,57 @@
     ],
     "limit": 7
    }
+  },
+  "godofrichi": {
+   "fetched_at": "2026-11-15T16:08:21.632727+00:00",
+   "feed": {
+    "title": "Richi",
+    "videos": [
+     {
+      "id": "Dfw05qjIzh4",
+      "title": "Топовый расклад) #game #minecraft #игра #кирка",
+      "published": "2026-11-15T12:54:53+00:00",
+      "url": "https://www.instagram.com/p/Dfw05qjIzh4/",
+      "views": null
+     },
+     {
+      "id": "DfwufSeIqWg",
+      "title": "Опять алмазка🤣 #game #minecraft #игра #кирка",
+      "published": "2026-11-15T11:58:50+00:00",
+      "url": "https://www.instagram.com/p/DfwufSeIqWg/",
+      "views": null
+     },
+     {
+      "id": "DfwpgLnoF6P",
+      "title": "Я в таком шоке... #game #minecraft #игра #кирка",
+      "published": "2026-11-15T11:14:43+00:00",
+      "url": "https://www.instagram.com/p/DfwpgLnoF6P/",
+      "views": null
+     },
+     {
+      "id": "Dfwho-qIhC0",
+      "title": "На лайтике) #game #minecraft #игра #кирка",
+      "published": "2026-11-15T10:06:06+00:00",
+      "url": "https://www.instagram.com/p/Dfwho-qIhC0/",
+      "views": null
+     },
+     {
+      "id": "DfwayV8Ib8T",
+      "title": "Портал😱 #game #minecraft #игра #кирка",
+      "published": "2026-11-15T09:06:19+00:00",
+      "url": "https://www.instagram.com/p/DfwayV8Ib8T/",
+      "views": null
+     },
+     {
+      "id": "DfwUmjZIXMN",
+      "title": "Рубиновая кирка⛏️ #game #minecraft #игра #кирка",
+      "published": "2026-11-15T08:12:19+00:00",
+      "url": "https://www.instagram.com/p/DfwUmjZIXMN/",
+      "views": null
+     }
+    ],
+    "limit": 7
+   }
   }
  }
 }
