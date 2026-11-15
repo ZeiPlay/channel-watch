@@ -1,5 +1,5 @@
 window.CHANNEL_DATA = {
- "generated_at": "2026-11-15T09:24:49.428135+00:00",
+ "generated_at": "2026-11-15T09:40:43.437973+00:00",
  "settings": {
   "silence_days": 2,
   "dormant_days": 7
