@@ -300,50 +300,6 @@
     "limit": 5
    }
   },
-  "polypredictiongod": {
-   "fetched_at": "2026-11-15T16:02:06.822572+00:00",
-   "feed": {
-    "title": "Richi",
-    "videos": [
-     {
-      "id": "7707683325552381217",
-      "title": "Видео без подписи",
-      "published": "2026-11-13T15:47:55+00:00",
-      "url": "https://www.tiktok.com/@polypredictiongod/video/7707683325552381217",
-      "views": 0
-     },
-     {
-      "id": "7706955043240529184",
-      "title": "Видео без подписи",
-      "published": "2026-11-11T16:41:48+00:00",
-      "url": "https://www.tiktok.com/@polypredictiongod/video/7706955043240529184",
-      "views": 175
-     },
-     {
-      "id": "7706942143201414432",
-      "title": "Видео без подписи",
-      "published": "2026-11-11T15:51:44+00:00",
-      "url": "https://www.tiktok.com/@polypredictiongod/video/7706942143201414432",
-      "views": 404
-     },
-     {
-      "id": "7706914759614008608",
-      "title": "Видео без подписи",
-      "published": "2026-11-11T14:05:29+00:00",
-      "url": "https://www.tiktok.com/@polypredictiongod/video/7706914759614008608",
-      "views": 672
-     },
-     {
-      "id": "7706573468350811425",
-      "title": "А еще больше новостей и наших мыслей в канале! #boeing #сокращение #в #события #…",
-      "published": "2026-11-10T16:01:10+00:00",
-      "url": "https://www.tiktok.com/@polypredictiongod/video/7706573468350811425",
-      "views": 679
-     }
-    ],
-    "limit": 5
-   }
-  },
   "signal.dead": {
    "fetched_at": "2026-11-15T16:15:37.843663+00:00",
    "feed": {
