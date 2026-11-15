@@ -240,6 +240,22 @@
    "fetched_at": "2026-11-15T12:04:16.050682+00:00",
    "feed": null,
    "error": "Нет данных: профиль не найден, закрыт или без публикаций"
+  },
+  "admin.comvgorle": {
+   "fetched_at": "2026-11-15T15:02:09.286553+00:00",
+   "feed": {
+    "title": "",
+    "videos": [
+     {
+      "id": "Dfs5pKFKmzQ",
+      "title": "На видео не я!",
+      "published": "2026-11-14T00:19:18+00:00",
+      "url": "https://www.instagram.com/p/Dfs5pKFKmzQ/",
+      "views": 2351
+     }
+    ],
+    "limit": 7
+   }
   }
  }
 }
