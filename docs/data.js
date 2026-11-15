@@ -1,5 +1,5 @@
 window.CHANNEL_DATA = {
- "generated_at": "2026-11-15T09:15:51.506696+00:00",
+ "generated_at": "2026-11-15T09:24:39.698582+00:00",
  "settings": {
   "silence_days": 2,
   "dormant_days": 7
@@ -8,7 +8,7 @@ window.CHANNEL_DATA = {
   {
    "key": "youtube:cosmonauu",
    "platform": "youtube",
-   "name": "ClipLab ",
+   "name": "ЛЕОН",
    "handle": "@cosmonauu",
    "url": "https://www.youtube.com/channel/UC-LCuJqUpQGbtVSdzbvS7MQ",
    "silence_days": 2,
