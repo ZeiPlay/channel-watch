@@ -1,5 +1,5 @@
 window.CHANNEL_DATA = {
- "generated_at": "2026-11-15T09:49:45.800439+00:00",
+ "generated_at": "2026-11-15T10:09:51.219575+00:00",
  "settings": {
   "silence_days": 2,
   "dormant_days": 7
@@ -51,7 +51,7 @@ window.CHANNEL_DATA = {
     0
    ],
    "status": "unsupported",
-   "message": "TikTok пока не подключён"
+   "message": "TikTok: добавьте секрет APIFY_TOKEN (инструкция в README)"
   },
   {
    "key": "tiktok:cosmonaut999",
@@ -99,7 +99,7 @@ window.CHANNEL_DATA = {
     0
    ],
    "status": "unsupported",
-   "message": "TikTok пока не подключён"
+   "message": "TikTok: добавьте секрет APIFY_TOKEN (инструкция в README)"
   },
   {
    "key": "tiktok:fdeecwssw8y",
@@ -147,7 +147,7 @@ window.CHANNEL_DATA = {
     0
    ],
    "status": "unsupported",
-   "message": "TikTok пока не подключён"
+   "message": "TikTok: добавьте секрет APIFY_TOKEN (инструкция в README)"
   },
   {
    "key": "youtube:cosmonauu",
@@ -159,7 +159,7 @@ window.CHANNEL_DATA = {
    "last_post": "2026-11-15T08:36:17+00:00",
    "last_title": "Шоу плюшки Юра Борисов пол Оскар 🫪",
    "last_url": "https://www.youtube.com/shorts/n8e9dWajWic",
-   "days_since": 0.05,
+   "days_since": 0.06,
    "posts_7d": 8,
    "posts_30d": 15,
    "history": [
@@ -243,7 +243,7 @@ window.CHANNEL_DATA = {
     0
    ],
    "status": "unsupported",
-   "message": "TikTok пока не подключён"
+   "message": "TikTok: добавьте секрет APIFY_TOKEN (инструкция в README)"
   }
  ]
 };
