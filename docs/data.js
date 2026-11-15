@@ -1,5 +1,5 @@
 window.CHANNEL_DATA = {
- "generated_at": "2026-11-15T10:56:17.456191+00:00",
+ "generated_at": "2026-11-15T11:07:44.028445+00:00",
  "settings": {
   "silence_days": 2,
   "dormant_days": 7
@@ -15,7 +15,7 @@ window.CHANNEL_DATA = {
    "last_post": "2026-11-14T08:27:31+00:00",
    "last_title": "Дмитрий про Жесткие 90 е",
    "last_url": "https://www.tiktok.com/@cosmonaut_7/video/7707940904769834292",
-   "days_since": 1.1,
+   "days_since": 1.11,
    "posts_7d": 3,
    "posts_30d": 3,
    "history": [
@@ -159,7 +159,7 @@ window.CHANNEL_DATA = {
    "last_post": "2026-11-15T08:36:17+00:00",
    "last_title": "Шоу плюшки Юра Борисов пол Оскар 🫪",
    "last_url": "https://www.youtube.com/shorts/n8e9dWajWic",
-   "days_since": 0.1,
+   "days_since": 0.11,
    "posts_7d": 8,
    "posts_30d": 15,
    "history": [
@@ -207,7 +207,7 @@ window.CHANNEL_DATA = {
    "last_post": "2026-11-12T16:06:31+00:00",
    "last_title": "#майнкрафт #musteatinmycity #minedrop Игра в профиле",
    "last_url": "https://www.tiktok.com/@youtuporads/video/7707316992046337311",
-   "days_since": 2.78,
+   "days_since": 2.79,
    "posts_7d": 2,
    "posts_30d": 2,
    "history": [
