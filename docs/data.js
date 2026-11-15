@@ -1,5 +1,5 @@
 window.CHANNEL_DATA = {
- "generated_at": "2026-11-15T11:07:44.028445+00:00",
+ "generated_at": "2026-11-15T11:37:31.657078+00:00",
  "settings": {
   "silence_days": 2,
   "dormant_days": 7
@@ -15,7 +15,7 @@ window.CHANNEL_DATA = {
    "last_post": "2026-11-14T08:27:31+00:00",
    "last_title": "Дмитрий про Жесткие 90 е",
    "last_url": "https://www.tiktok.com/@cosmonaut_7/video/7707940904769834292",
-   "days_since": 1.11,
+   "days_since": 1.13,
    "posts_7d": 3,
    "posts_30d": 3,
    "history": [
@@ -63,7 +63,7 @@ window.CHANNEL_DATA = {
    "last_post": "2026-11-14T18:56:20+00:00",
    "last_title": "Нагиев ургант",
    "last_url": "https://www.tiktok.com/@cosmonaut999/video/7708102944322784533",
-   "days_since": 0.67,
+   "days_since": 0.7,
    "posts_7d": 3,
    "posts_30d": 3,
    "history": [
@@ -111,7 +111,7 @@ window.CHANNEL_DATA = {
    "last_post": "2026-11-15T08:53:47+00:00",
    "last_title": "История побег с тюрьмы #ии #история #приколы #рек",
    "last_url": "https://www.tiktok.com/@fdeecwssw8y/video/7708318744526867734",
-   "days_since": 0.09,
+   "days_since": 0.11,
    "posts_7d": 3,
    "posts_30d": 3,
    "history": [
@@ -159,7 +159,7 @@ window.CHANNEL_DATA = {
    "last_post": "2026-11-15T08:36:17+00:00",
    "last_title": "Шоу плюшки Юра Борисов пол Оскар 🫪",
    "last_url": "https://www.youtube.com/shorts/n8e9dWajWic",
-   "days_since": 0.11,
+   "days_since": 0.13,
    "posts_7d": 8,
    "posts_30d": 15,
    "history": [
@@ -207,7 +207,7 @@ window.CHANNEL_DATA = {
    "last_post": "2026-11-12T16:06:31+00:00",
    "last_title": "#майнкрафт #musteatinmycity #minedrop Игра в профиле",
    "last_url": "https://www.tiktok.com/@youtuporads/video/7707316992046337311",
-   "days_since": 2.79,
+   "days_since": 2.81,
    "posts_7d": 2,
    "posts_30d": 2,
    "history": [
@@ -388,6 +388,54 @@ window.CHANNEL_DATA = {
    ],
    "status": "unsupported",
    "message": "Instagram пока не подключён"
+  },
+  {
+   "key": "tiktok:seriali001",
+   "platform": "tiktok",
+   "name": "Елисей",
+   "handle": "@seriali001",
+   "url": "",
+   "silence_days": null,
+   "last_post": null,
+   "last_title": "",
+   "last_url": "",
+   "days_since": null,
+   "posts_7d": 0,
+   "posts_30d": 0,
+   "history": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "error",
+   "message": "Ошибка загрузки: Нет данных: профиль не найден, закрыт или без видео"
   }
  ]
 };
