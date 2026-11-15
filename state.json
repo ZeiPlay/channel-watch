@@ -7,7 +7,8 @@
   "@VasabiNews": "UC16m6lJC63hIqjDXTuGpKvw",
   "@Lenti0011": "UC1_aMcjhYihkW5yEt77n-Aw",
   "@vcyhdjfu": "UCXQvg6p4nDE0O_tHdmuK_Rg",
-  "@MrYogurt_YT": "UC3qxRaQFMmaEeLTeZEK1Jfw"
+  "@MrYogurt_YT": "UC3qxRaQFMmaEeLTeZEK1Jfw",
+  "@byrmaldaaaass1537": "UCwCQlN2nprVO965mx8ws8UQ"
  },
  "alerted": {
   "tiktok:youtuporads": {
@@ -33,6 +34,10 @@
   "tiktok:signal.dead": {
    "last_post": "2026-11-12T19:35:05+00:00",
    "level": 1
+  },
+  "youtube:byrmaldaaaass1537": {
+   "last_post": "2026-10-31T08:19:05+00:00",
+   "level": 2
   }
  },
  "tiktok_cache": {
