@@ -10,6 +10,10 @@
   "tiktok:youtuporads": {
    "last_post": "2026-11-12T16:06:31+00:00",
    "level": 1
+  },
+  "instagram:pleukhin_danil": {
+   "last_post": "2026-05-18T08:04:52+00:00",
+   "level": 2
   }
  },
  "tiktok_cache": {
@@ -177,6 +181,11 @@
    "fetched_at": "2026-11-15T12:04:16.050682+00:00",
    "feed": null,
    "error": "Нет данных: профиль не найден, закрыт или без публикаций"
+  },
+  "cloudcode09": {
+   "fetched_at": "2026-11-15T15:26:34.584379+00:00",
+   "feed": null,
+   "error": "Нет данных: профиль не найден, закрыт или без публикаций"
   }
  },
  "instagram_cache": {
@@ -252,6 +261,57 @@
       "published": "2026-11-14T00:19:18+00:00",
       "url": "https://www.instagram.com/p/Dfs5pKFKmzQ/",
       "views": 2351
+     }
+    ],
+    "limit": 7
+   }
+  },
+  "pleukhin_danil": {
+   "fetched_at": "2026-11-15T15:26:34.584379+00:00",
+   "feed": {
+    "title": "для тебя, Даниил Дмитриевич.",
+    "videos": [
+     {
+      "id": "DYeP9toADF2",
+      "title": "Публикация без подписи",
+      "published": "2026-05-18T08:04:52+00:00",
+      "url": "https://www.instagram.com/p/DYeP9toADF2/",
+      "views": null
+     },
+     {
+      "id": "C79YpR2thVZ",
+      "title": "🏄‍♂️",
+      "published": "2024-06-08T15:06:45+00:00",
+      "url": "https://www.instagram.com/p/C79YpR2thVZ/",
+      "views": null
+     },
+     {
+      "id": "C3tRid9LFY5",
+      "title": "Публикация без подписи",
+      "published": "2024-02-23T22:51:14+00:00",
+      "url": "https://www.instagram.com/p/C3tRid9LFY5/",
+      "views": null
+     },
+     {
+      "id": "CvpYLoaNGZG",
+      "title": "Публикация без подписи",
+      "published": "2023-08-07T14:21:10+00:00",
+      "url": "https://www.instagram.com/p/CvpYLoaNGZG/",
+      "views": null
+     },
+     {
+      "id": "Cm97xYFqEoa",
+      "title": "Эти фотографии заряжены на успех, освящены зажигалкой. Прикладывайте к ним детей…",
+      "published": "2023-01-03T21:14:25+00:00",
+      "url": "https://www.instagram.com/p/Cm97xYFqEoa/",
+      "views": null
+     },
+     {
+      "id": "CDjBQWmJcR5",
+      "title": "Публикация без подписи",
+      "published": "2020-08-06T12:04:02+00:00",
+      "url": "https://www.instagram.com/p/CDjBQWmJcR5/",
+      "views": null
      }
     ],
     "limit": 7
