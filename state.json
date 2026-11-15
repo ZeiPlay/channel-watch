@@ -5,7 +5,8 @@
   "@mrbeast": "UCX6OQ3DkcsbYNE6H8uQQuVA",
   "@cosmonauu": "UC-LCuJqUpQGbtVSdzbvS7MQ",
   "@VasabiNews": "UC16m6lJC63hIqjDXTuGpKvw",
-  "@Lenti0011": "UC1_aMcjhYihkW5yEt77n-Aw"
+  "@Lenti0011": "UC1_aMcjhYihkW5yEt77n-Aw",
+  "@vcyhdjfu": "UCXQvg6p4nDE0O_tHdmuK_Rg"
  },
  "alerted": {
   "tiktok:youtuporads": {
@@ -14,6 +15,10 @@
   },
   "instagram:pleukhin_danil": {
    "last_post": "2026-05-18T08:04:52+00:00",
+   "level": 2
+  },
+  "youtube:vcyhdjfu": {
+   "last_post": "2026-10-15T10:34:47+00:00",
    "level": 2
   }
  },
@@ -401,6 +406,57 @@
       "published": "2020-08-06T12:04:02+00:00",
       "url": "https://www.instagram.com/p/CDjBQWmJcR5/",
       "views": null
+     }
+    ],
+    "limit": 7
+   }
+  },
+  "bezlichniy_": {
+   "fetched_at": "2026-11-15T15:59:54.895572+00:00",
+   "feed": {
+    "title": "Безличный👀",
+    "videos": [
+     {
+      "id": "DfwcJj-o4tl",
+      "title": "Сергей Викторович Лавров — один из самых известных дипломатов современности, мин…",
+      "published": "2026-11-15T09:19:34+00:00",
+      "url": "https://www.instagram.com/p/DfwcJj-o4tl/",
+      "views": 86
+     },
+     {
+      "id": "DfsxtgPIKmJ",
+      "title": "ТАКОГО ОТ ПУГАЧЁВОЙ И ЖИРИНОВСКОГО НЕ ОЖИДАЛ НИКТО! Перепалка, которую невозможн…",
+      "published": "2026-11-13T23:10:28+00:00",
+      "url": "https://www.instagram.com/p/DfsxtgPIKmJ/",
+      "views": 355
+     },
+     {
+      "id": "DfpOd_doaPh",
+      "title": "Казань, 1987 год. Время, когда улицы города жили по своим законам, а за обычными…",
+      "published": "2026-11-12T14:04:29+00:00",
+      "url": "https://www.instagram.com/p/DfpOd_doaPh/",
+      "views": 302
+     },
+     {
+      "id": "DfcbiGHICdb",
+      "title": "Дефолт (1998) — Россия объявила о невозможности выплачивать часть долгов, произо…",
+      "published": "2026-11-07T14:48:29+00:00",
+      "url": "https://www.instagram.com/p/DfcbiGHICdb/",
+      "views": 491
+     },
+     {
+      "id": "DfKWA-8IW_-",
+      "title": "🇷🇺 Распад СССР — 1991 год. Конец целой эпохи. 26 декабря 1991 года Советский Сою…",
+      "published": "2026-10-31T14:27:50+00:00",
+      "url": "https://www.instagram.com/p/DfKWA-8IW_-/",
+      "views": 1201
+     },
+     {
+      "id": "DeuZbgGow6B",
+      "title": "11 сентября 2001 года 19 угонщиков захватили четыре пассажирских самолета; два с…",
+      "published": "2026-10-20T17:45:00+00:00",
+      "url": "https://www.instagram.com/p/DeuZbgGow6B/",
+      "views": 778
      }
     ],
     "limit": 7
