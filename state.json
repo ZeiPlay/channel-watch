@@ -29,6 +29,10 @@
   "youtube:mryogurt_yt": {
    "last_post": "2026-10-27T07:00:25+00:00",
    "level": 2
+  },
+  "tiktok:signal.dead": {
+   "last_post": "2026-11-12T19:35:05+00:00",
+   "level": 1
   }
  },
  "tiktok_cache": {
@@ -373,6 +377,50 @@
       "published": "2026-11-10T16:01:10+00:00",
       "url": "https://www.tiktok.com/@polypredictiongod/video/7706573468350811425",
       "views": 679
+     }
+    ],
+    "limit": 5
+   }
+  },
+  "signal.dead": {
+   "fetched_at": "2026-11-15T16:15:37.843663+00:00",
+   "feed": {
+    "title": "LostSignal",
+    "videos": [
+     {
+      "id": "7707370790798232864",
+      "title": "ОТКРЫЛИ ПВЗ С ДРУГОМ #анимация #истории",
+      "published": "2026-11-12T19:35:05+00:00",
+      "url": "https://www.tiktok.com/@signal.dead/video/7707370790798232864",
+      "views": 96900
+     },
+     {
+      "id": "7707172842831465760",
+      "title": "Создай свое видео в шапке профиля. Дача - 1 серия. #анимация #истории",
+      "published": "2026-11-12T06:47:06+00:00",
+      "url": "https://www.tiktok.com/@signal.dead/video/7707172842831465760",
+      "views": 6943
+     },
+     {
+      "id": "7706578320699165985",
+      "title": "Мамкины Бизнесмены - 1 серия #анимация #истории",
+      "published": "2026-11-10T16:19:54+00:00",
+      "url": "https://www.tiktok.com/@signal.dead/video/7706578320699165985",
+      "views": 71200
+     },
+     {
+      "id": "7706257181959605537",
+      "title": "1 часть #анимация #истории",
+      "published": "2026-11-09T19:33:46+00:00",
+      "url": "https://www.tiktok.com/@signal.dead/video/7706257181959605537",
+      "views": 2130
+     },
+     {
+      "id": "7705890342272273697",
+      "title": "Прайм Казани #анимация #истории",
+      "published": "2026-11-08T19:50:12+00:00",
+      "url": "https://www.tiktok.com/@signal.dead/video/7705890342272273697",
+      "views": 4835
      }
     ],
     "limit": 5
