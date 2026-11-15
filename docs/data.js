@@ -1,5 +1,5 @@
 window.CHANNEL_DATA = {
- "generated_at": "2026-11-15T09:43:21.476076+00:00",
+ "generated_at": "2026-11-15T09:49:45.800439+00:00",
  "settings": {
   "silence_days": 2,
   "dormant_days": 7
@@ -196,6 +196,54 @@ window.CHANNEL_DATA = {
    ],
    "status": "ok",
    "message": ""
+  },
+  {
+   "key": "tiktok:youtuporads",
+   "platform": "tiktok",
+   "name": "SBERBANK",
+   "handle": "@youtuporads",
+   "url": "",
+   "silence_days": null,
+   "last_post": null,
+   "last_title": "",
+   "last_url": "",
+   "days_since": null,
+   "posts_7d": 0,
+   "posts_30d": 0,
+   "history": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "unsupported",
+   "message": "TikTok пока не подключён"
   }
  ]
 };
