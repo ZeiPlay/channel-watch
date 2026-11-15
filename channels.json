@@ -3,10 +3,5 @@
     "silence_days": 2,
     "dormant_days": 7
   },
-  "channels": [
-    {
-      "platform": "telegram",
-      "handle": "@durov"
-    }
-  ]
+  "channels": []
 }
