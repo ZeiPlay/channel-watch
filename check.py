@@ -17,6 +17,7 @@ import sys
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
+from html import unescape
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -101,6 +102,47 @@ def fetch_youtube(ch, state):
     return feed
 
 
+# ---------- Telegram (публичные каналы, страница t.me/s/имя) ----------
+
+TG_NAME = re.compile(r"^[A-Za-z][A-Za-z0-9_]{3,31}$")
+
+
+def parse_telegram_page(page):
+    """Достаёт название канала и последние посты из HTML страницы t.me/s/имя."""
+    if "tgme_widget_message" not in page and "tgme_channel_info" not in page:
+        raise ValueError("Это не публичный канал (личные профили, группы и закрытые каналы отслеживать нельзя)")
+    m = re.search(r'<meta property="og:title" content="([^"]*)"', page)
+    title = unescape(m.group(1)).strip() if m else ""
+    posts = []
+    for chunk in page.split("tgme_widget_message_wrap")[1:]:
+        d = re.search(r'<a class="tgme_widget_message_date" href="([^"]+)"[^>]*>\s*<time[^>]*datetime="([^"]+)"', chunk)
+        if not d:
+            continue
+        t = re.search(r'<div class="tgme_widget_message_text[^"]*"[^>]*>(.*?)</div>', chunk, re.S)
+        text = ""
+        if t:
+            text = re.sub(r"<br\s*/?>", " ", t.group(1))
+            text = unescape(re.sub(r"<[^>]+>", "", text))
+            text = re.sub(r"\s+", " ", text).strip()
+        posts.append({
+            "id": d.group(1).rsplit("/", 1)[-1],
+            "title": (text[:80] + "…") if len(text) > 80 else (text or "Пост без текста"),
+            "published": parse_iso(d.group(2)).isoformat(),
+            "url": unescape(d.group(1)),
+        })
+    posts.sort(key=lambda v: v["published"], reverse=True)
+    return {"title": title, "videos": posts}
+
+
+def fetch_telegram(ch, state):
+    name = (ch.get("handle") or "").strip().lstrip("@")
+    if not TG_NAME.match(name):
+        raise ValueError("Неверное имя Telegram-канала: " + (ch.get("handle") or ""))
+    feed = parse_telegram_page(http_get("https://t.me/s/" + name))
+    feed["channel_url"] = "https://t.me/" + name
+    return feed
+
+
 def fetch_tiktok(ch, state):
     raise Unsupported("TikTok пока не подключён")
 
@@ -109,7 +151,7 @@ def fetch_instagram(ch, state):
     raise Unsupported("Instagram пока не подключён")
 
 
-PROVIDERS = {"youtube": fetch_youtube, "tiktok": fetch_tiktok, "instagram": fetch_instagram}
+PROVIDERS = {"youtube": fetch_youtube, "telegram": fetch_telegram, "tiktok": fetch_tiktok, "instagram": fetch_instagram}
 
 
 # ---------- Расчёт статуса ----------
@@ -210,12 +252,13 @@ def process_alerts(entries, state):
         if prev.get("last_post") == e["last_post"] and prev.get("level", 0) >= level:
             continue
         icon = "🔴" if level == 2 else "🟡"
-        line = f'{icon} {e["name"]} ({e["platform"]}): {ru_days(e["days_since"])} без видео\n{e["last_url"]}'.rstrip()
+        what = "постов" if e["platform"] in ("telegram", "instagram") else "видео"
+        line = f'{icon} {e["name"]} ({e["platform"]}): {ru_days(e["days_since"])} без {what}\n{e["last_url"]}'.rstrip()
         pending.append((key, level, line, e["last_post"]))
     if not pending:
         return
 
-    chunks, cur = [], "Каналы без новых видео:\n"
+    chunks, cur = [], "Каналы без новых публикаций:\n"
     for _, _, line, _ in pending:
         if len(cur) + len(line) + 2 > 3500:
             chunks.append(cur)
@@ -243,6 +286,7 @@ def demo_entries(now, settings):
         ("youtube", "Обзоры техники", "@tech", 1.2, 3),
         ("youtube", "Влоги про путешествия", "@travel", 3.5, 2),
         ("youtube", "Игровой стрим", "@games", 9.0, 1),
+        ("telegram", "Новости канала", "@newsline", 0.3, 5),
         ("tiktok", "Танцы и тренды", "@dance", 0.8, 6),
         ("tiktok", "Лайфхаки", "@hacks", 2.6, 4),
         ("instagram", "Фото-блог", "photoblog", 1.0, 3),
