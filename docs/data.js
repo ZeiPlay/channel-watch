@@ -1,5 +1,5 @@
 window.CHANNEL_DATA = {
- "generated_at": "2026-11-15T09:40:43.437973+00:00",
+ "generated_at": "2026-11-15T09:43:21.476076+00:00",
  "settings": {
   "silence_days": 2,
   "dormant_days": 7
@@ -148,6 +148,54 @@ window.CHANNEL_DATA = {
    ],
    "status": "unsupported",
    "message": "TikTok пока не подключён"
+  },
+  {
+   "key": "youtube:cosmonauu",
+   "platform": "youtube",
+   "name": "ЛЕОН",
+   "handle": "@cosmonauu",
+   "url": "https://www.youtube.com/channel/UC-LCuJqUpQGbtVSdzbvS7MQ",
+   "silence_days": 2,
+   "last_post": "2026-11-15T08:36:17+00:00",
+   "last_title": "Шоу плюшки Юра Борисов пол Оскар 🫪",
+   "last_url": "https://www.youtube.com/shorts/n8e9dWajWic",
+   "days_since": 0.05,
+   "posts_7d": 8,
+   "posts_30d": 15,
+   "history": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    3,
+    0,
+    2,
+    1,
+    1,
+    1,
+    1,
+    2,
+    1,
+    1
+   ],
+   "status": "ok",
+   "message": ""
   }
  ]
 };
