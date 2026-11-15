@@ -1,5 +1,5 @@
 window.CHANNEL_DATA = {
- "generated_at": "2026-11-15T10:15:14.195571+00:00",
+ "generated_at": "2026-11-15T10:52:15.737849+00:00",
  "settings": {
   "silence_days": 2,
   "dormant_days": 7
@@ -15,7 +15,7 @@ window.CHANNEL_DATA = {
    "last_post": "2026-11-14T08:27:31+00:00",
    "last_title": "Дмитрий про Жесткие 90 е",
    "last_url": "https://www.tiktok.com/@cosmonaut_7/video/7707940904769834292",
-   "days_since": 1.07,
+   "days_since": 1.1,
    "posts_7d": 3,
    "posts_30d": 3,
    "history": [
@@ -63,7 +63,7 @@ window.CHANNEL_DATA = {
    "last_post": "2026-11-14T18:56:20+00:00",
    "last_title": "Нагиев ургант",
    "last_url": "https://www.tiktok.com/@cosmonaut999/video/7708102944322784533",
-   "days_since": 0.64,
+   "days_since": 0.66,
    "posts_7d": 3,
    "posts_30d": 3,
    "history": [
@@ -111,7 +111,7 @@ window.CHANNEL_DATA = {
    "last_post": "2026-11-15T08:53:47+00:00",
    "last_title": "История побег с тюрьмы #ии #история #приколы #рек",
    "last_url": "https://www.tiktok.com/@fdeecwssw8y/video/7708318744526867734",
-   "days_since": 0.06,
+   "days_since": 0.08,
    "posts_7d": 3,
    "posts_30d": 3,
    "history": [
@@ -159,7 +159,7 @@ window.CHANNEL_DATA = {
    "last_post": "2026-11-15T08:36:17+00:00",
    "last_title": "Шоу плюшки Юра Борисов пол Оскар 🫪",
    "last_url": "https://www.youtube.com/shorts/n8e9dWajWic",
-   "days_since": 0.07,
+   "days_since": 0.09,
    "posts_7d": 8,
    "posts_30d": 15,
    "history": [
@@ -181,8 +181,8 @@ window.CHANNEL_DATA = {
     0,
     0,
     0,
-    1,
     2,
+    1,
     2,
     0,
     2,
@@ -207,7 +207,7 @@ window.CHANNEL_DATA = {
    "last_post": "2026-11-12T16:06:31+00:00",
    "last_title": "#майнкрафт #musteatinmycity #minedrop Игра в профиле",
    "last_url": "https://www.tiktok.com/@youtuporads/video/7707316992046337311",
-   "days_since": 2.76,
+   "days_since": 2.78,
    "posts_7d": 2,
    "posts_30d": 2,
    "history": [
@@ -244,6 +244,54 @@ window.CHANNEL_DATA = {
    ],
    "status": "silent",
    "message": ""
+  },
+  {
+   "key": "instagram:randyoliver19544",
+   "platform": "instagram",
+   "name": "Mr. Green",
+   "handle": "randyoliver19544",
+   "url": "",
+   "silence_days": null,
+   "last_post": null,
+   "last_title": "",
+   "last_url": "",
+   "days_since": null,
+   "posts_7d": 0,
+   "posts_30d": 0,
+   "history": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "unsupported",
+   "message": "Instagram пока не подключён"
   }
  ]
 };
