@@ -30,6 +30,7 @@ OUT_DIR = ROOT / "docs"
 NS = {
     "a": "http://www.w3.org/2005/Atom",
     "yt": "http://www.youtube.com/xml/schemas/2015",
+    "m": "http://search.yahoo.com/mrss/",
 }
 UA = "Mozilla/5.0 (compatible; channel-watch/1.0)"
 HISTORY_DAYS = 30
@@ -47,6 +48,16 @@ def http_get(url, timeout=20):
 
 def parse_iso(s):
     return datetime.fromisoformat(s.replace("Z", "+00:00")).astimezone(timezone.utc)
+
+
+def parse_count(text):
+    """'1234' -> 1234, '12.3K' -> 12300, '1,5M' -> 1500000. Пусто или мусор -> None."""
+    t = str(text or "").strip().replace(" ", "").replace(",", ".").upper()
+    m = re.match(r"^(\d+(?:\.\d+)?)([KМM]?)$", t)  # латинская и русская «М»
+    if not m:
+        return None
+    mult = {"": 1, "K": 1000, "M": 1000000, "М": 1000000}[m.group(2)]
+    return int(round(float(m.group(1)) * mult))
 
 
 # ---------- YouTube ----------
@@ -85,14 +96,16 @@ def parse_youtube_feed(xml_text):
     videos = []
     for e in root.findall("a:entry", NS):
         link = e.find("a:link", NS)
+        stat = e.find("m:group/m:community/m:statistics", NS)
         videos.append({
             "id": e.findtext("yt:videoId", default="", namespaces=NS),
             "title": e.findtext("a:title", default="", namespaces=NS),
             "published": parse_iso(e.findtext("a:published", namespaces=NS)).isoformat(),
             "url": link.get("href") if link is not None else "",
+            "views": parse_count(stat.get("views")) if stat is not None else None,
         })
     videos.sort(key=lambda v: v["published"], reverse=True)
-    return {"title": title, "videos": videos}
+    return {"title": title, "videos": videos, "limit": 15}  # лента YouTube отдаёт до 15 последних видео
 
 
 def fetch_youtube(ch, state):
@@ -125,14 +138,16 @@ def parse_telegram_page(page):
             text = re.sub(r"<br\s*/?>", " ", t.group(1))
             text = unescape(re.sub(r"<[^>]+>", "", text))
             text = re.sub(r"\s+", " ", text).strip()
+        vw = re.search(r'<span class="tgme_widget_message_views">([^<]*)</span>', chunk)
         posts.append({
             "id": d.group(1).rsplit("/", 1)[-1],
             "title": (text[:80] + "…") if len(text) > 80 else (text or "Пост без текста"),
             "published": parse_iso(d.group(2)).isoformat(),
             "url": unescape(d.group(1)),
+            "views": parse_count(vw.group(1)) if vw else None,
         })
     posts.sort(key=lambda v: v["published"], reverse=True)
-    return {"title": title, "videos": posts}
+    return {"title": title, "videos": posts, "limit": 20}  # страница t.me/s показывает около 20 последних постов
 
 
 def fetch_telegram(ch, state):
@@ -144,22 +159,41 @@ def fetch_telegram(ch, state):
     return feed
 
 
-# ---------- TikTok (через Apify, нужен секрет APIFY_TOKEN) ----------
-# У TikTok нет бесплатного API для чужих каналов, поэтому данные берёт сторонний сборщик.
-# Чтобы не тратить кредиты, опрашиваем его не чаще раза в tiktok_interval_hours (по умолчанию 24),
-# а между опросами используем сохранённый в state.json результат.
+# ---------- TikTok и Instagram (через Apify, нужен секрет APIFY_TOKEN) ----------
+# У TikTok и Instagram нет бесплатного API для чужих каналов, поэтому данные берёт сторонний сборщик.
+# Чтобы не тратить кредиты, опрашиваем его не чаще раза в *_interval_hours (по умолчанию 24),
+# а между опросами используем результат, сохранённый в state.json.
 
-APIFY_ACTOR = "clockworks~tiktok-scraper"
-TT_NAME = re.compile(r"^[A-Za-z0-9_.]{2,24}$")
-TT_ERRORS = {}   # ошибки последнего опроса, только в памяти
+APIFY = {
+    "tiktok": {
+        "label": "TikTok",
+        "actor": "clockworks~tiktok-scraper",
+        "name_re": re.compile(r"^[A-Za-z0-9_.]{2,24}$"),
+        "url": "https://www.tiktok.com/@{}",
+        "interval": "tiktok_interval_hours", "limit": "tiktok_videos_per_check", "limit_default": 5,
+    },
+    "instagram": {
+        "label": "Instagram",
+        "actor": "dami_studio~instagram-scraper",
+        "name_re": re.compile(r"^[A-Za-z0-9_.]{1,30}$"),
+        "url": "https://www.instagram.com/{}/",
+        "interval": "instagram_interval_hours", "limit": "instagram_posts_per_check", "limit_default": 7,
+    },
+}
+APIFY_ERRORS = {}   # ошибки последнего опроса {(платформа, имя): текст}, только в памяти
 
 
-def tt_name(ch):
+def apify_name(ch):
     return (ch.get("handle") or "").strip().lstrip("@")
 
 
-def apify_run(token, payload):
-    url = f"https://api.apify.com/v2/acts/{APIFY_ACTOR}/run-sync-get-dataset-items?timeout=270"
+def apify_actor_id(platform, settings):
+    custom = settings.get(platform + "_actor")
+    return str(custom).replace("/", "~") if custom else APIFY[platform]["actor"]
+
+
+def apify_run(token, payload, actor):
+    url = f"https://api.apify.com/v2/acts/{actor}/run-sync-get-dataset-items?timeout=270"
     req = urllib.request.Request(
         url, data=json.dumps(payload).encode("utf-8"), method="POST",
         headers={"Authorization": "Bearer " + token, "Content-Type": "application/json", "User-Agent": UA})
@@ -171,10 +205,16 @@ def apify_run(token, payload):
             401: "неверный APIFY_TOKEN",
             402: "закончились бесплатные кредиты Apify (обновятся в начале следующего месяца)",
             403: "Apify отказал в доступе (проверьте токен и тариф)",
+            404: "сборщик не найден (проверьте название в настройках)",
             408: "Apify не успел ответить, попробуем в следующий раз",
             429: "Apify просит подождать (слишком много запросов)",
         }
         raise ValueError("Apify: " + reasons.get(ex.code, f"ошибка {ex.code}"))
+
+
+def _short(text):
+    text = re.sub(r"\s+", " ", str(text or "")).strip()
+    return (text[:80] + "…") if len(text) > 80 else text
 
 
 def parse_tiktok_items(items, names):
@@ -192,87 +232,124 @@ def parse_tiktok_items(items, names):
             published = datetime.fromtimestamp(int(it["createTime"]), timezone.utc).isoformat()
         else:
             continue
-        text = re.sub(r"\s+", " ", str(it.get("text") or "")).strip()
         f = feeds[name]
         f["title"] = f["title"] or meta.get("nickName") or meta.get("name") or ""
+        views = it.get("playCount")
         f["videos"].append({
             "id": str(it.get("id") or ""),
-            "title": (text[:80] + "…") if len(text) > 80 else (text or "Видео без подписи"),
+            "title": _short(it.get("text")) or "Видео без подписи",
             "published": published,
             "url": it.get("webVideoUrl") or "",
+            "views": int(views) if isinstance(views, (int, float)) else None,
         })
-    for f in feeds.values():
-        f["videos"].sort(key=lambda v: v["published"], reverse=True)
     return feeds
 
 
-def prefetch_tiktok(channels, state, settings, now):
-    """Один запрос к Apify для всех TikTok-каналов, у которых сохранённые данные устарели."""
-    names = []
-    for ch in channels:
-        if ch.get("platform") == "tiktok" and TT_NAME.match(tt_name(ch)):
-            names.append(tt_name(ch))
-    cache = state.setdefault("tiktok_cache", {})
-    for k in [k for k in cache if k not in {n.lower() for n in names}]:
-        del cache[k]                      # канал удалили из списка
+def parse_instagram_items(items, names):
+    """Строки Apify по Instagram: пропускаем строку профиля, берём публикации."""
+    feeds = {n.lower(): {"title": "", "videos": []} for n in names}
+    for it in items or []:
+        name = str(it.get("ownerUsername") or "").lower()
+        if name not in feeds:
+            continue
+        f = feeds[name]
+        f["title"] = f["title"] or it.get("ownerFullName") or it.get("fullName") or ""
+        ts, url = it.get("timestamp"), it.get("url") or ""
+        if not ts or "/p/" not in url and "/reel/" not in url and "/tv/" not in url:
+            continue                       # строка профиля или без даты
+        views = it.get("videoPlayCount")
+        if not isinstance(views, (int, float)):
+            views = it.get("videoViewCount")
+        f["videos"].append({
+            "id": str(it.get("shortCode") or it.get("id") or ""),
+            "title": _short(it.get("caption")) or "Публикация без подписи",
+            "published": parse_iso(ts).isoformat() if isinstance(ts, str) else datetime.fromtimestamp(int(ts), timezone.utc).isoformat(),
+            "url": url,
+            "views": int(views) if isinstance(views, (int, float)) else None,   # у фото просмотров нет
+        })
+    return feeds
+
+
+def apify_payload(platform, names, limit):
+    if platform == "tiktok":
+        return {
+            "profiles": names, "resultsPerPage": limit, "profileScrapeSections": ["videos"],
+            "profileSorting": "latest", "excludePinnedPosts": True, "maxProfilesPerQuery": max(10, len(names)),
+            "shouldDownloadVideos": False, "shouldDownloadCovers": False, "shouldDownloadAvatars": False,
+            "shouldDownloadMusicCovers": False, "shouldDownloadSlideshowImages": False, "shouldDownloadSubtitles": False,
+        }
+    return {"usernames": names, "resultsLimit": limit, "skipPinnedPosts": True}
+
+
+def prefetch_apify(platform, channels, state, settings, now):
+    """Один запрос к Apify для всех каналов платформы, у которых сохранённые данные устарели."""
+    cfg = APIFY[platform]
+    names = [apify_name(c) for c in channels if c.get("platform") == platform and cfg["name_re"].match(apify_name(c))]
+    cache = state.setdefault(platform + "_cache", {})
+    wanted = {n.lower() for n in names}
+    for k in [k for k in cache if k not in wanted]:
+        del cache[k]                       # канал удалили из списка
     token = os.environ.get("APIFY_TOKEN")
     if not names or not token:
         return
-    max_age = timedelta(hours=settings.get("tiktok_interval_hours", 24))
+    limit = int(settings.get(cfg["limit"], cfg["limit_default"]))
+    max_age = timedelta(hours=settings.get(cfg["interval"], 24))
     due = []
     for n in names:
         c = cache.get(n.lower())
-        if not c or now - parse_iso(c["fetched_at"]) >= max_age:
+        stale = (not c or now - parse_iso(c["fetched_at"]) >= max_age
+                 or (c.get("feed") and c["feed"].get("limit") != limit))   # поменяли число видео, обновим
+        if stale:
             due.append(n)
     if not due:
         return
     try:
-        items = apify_run(token, {
-            "profiles": due,
-            "resultsPerPage": settings.get("tiktok_videos_per_check", 3),
-            "profileScrapeSections": ["videos"],
-            "profileSorting": "latest",
-            "excludePinnedPosts": True,
-            "maxProfilesPerQuery": max(10, len(due)),
-            "shouldDownloadVideos": False, "shouldDownloadCovers": False, "shouldDownloadAvatars": False,
-            "shouldDownloadMusicCovers": False, "shouldDownloadSlideshowImages": False, "shouldDownloadSubtitles": False,
-        })
+        items = apify_run(token, apify_payload(platform, due, limit), apify_actor_id(platform, settings))
     except Exception as ex:
         for n in due:
-            TT_ERRORS[n.lower()] = str(ex)
-        print("TikTok: ", ex, file=sys.stderr)
+            APIFY_ERRORS[(platform, n.lower())] = str(ex)
+        print(f"{cfg['label']}: {ex}", file=sys.stderr)
         return
-    feeds = parse_tiktok_items(items, due)
+    parse = parse_tiktok_items if platform == "tiktok" else parse_instagram_items
+    feeds = parse(items, due)
     for n in due:
         f = feeds[n.lower()]
         if f["videos"]:
+            f["videos"].sort(key=lambda v: v["published"], reverse=True)
+            f["limit"] = limit
             cache[n.lower()] = {"fetched_at": now.isoformat(), "feed": f}
         else:
             # запоминаем и «не найден», чтобы не платить за повторный опрос при каждом запуске
-            msg = "Нет данных: профиль не найден, закрыт или без видео"
+            msg = "Нет данных: профиль не найден, закрыт или без публикаций"
             cache[n.lower()] = {"fetched_at": now.isoformat(), "feed": None, "error": msg}
 
 
-def fetch_tiktok(ch, state):
-    name = tt_name(ch)
-    if not TT_NAME.match(name):
-        raise ValueError("Неверное имя TikTok-канала: " + (ch.get("handle") or ""))
+def fetch_apify(platform, ch, state):
+    cfg = APIFY[platform]
+    name = apify_name(ch)
+    if not cfg["name_re"].match(name):
+        raise ValueError(f"Неверное имя {cfg['label']}-канала: " + (ch.get("handle") or ""))
     if not os.environ.get("APIFY_TOKEN"):
-        raise Unsupported("TikTok: добавьте секрет APIFY_TOKEN (инструкция в README)")
-    c = state.get("tiktok_cache", {}).get(name.lower())
+        raise Unsupported(f"{cfg['label']}: добавьте секрет APIFY_TOKEN (инструкция в README)")
+    c = state.get(platform + "_cache", {}).get(name.lower())
+    err = APIFY_ERRORS.get((platform, name.lower()))
     if not c:
-        raise ValueError(TT_ERRORS.get(name.lower()) or "Данные ещё не получены")
+        raise ValueError(err or "Данные ещё не получены")
     if c.get("feed") is None:
         raise ValueError(c.get("error") or "Нет данных")
-    if name.lower() in TT_ERRORS:
-        print(f"TikTok @{name}: используем сохранённые данные ({TT_ERRORS[name.lower()]})", file=sys.stderr)
+    if err:
+        print(f"{cfg['label']} {name}: используем сохранённые данные ({err})", file=sys.stderr)
     feed = dict(c["feed"])
-    feed["channel_url"] = "https://www.tiktok.com/@" + name
+    feed["channel_url"] = cfg["url"].format(name)
     return feed
 
 
+def fetch_tiktok(ch, state):
+    return fetch_apify("tiktok", ch, state)
+
+
 def fetch_instagram(ch, state):
-    raise Unsupported("Instagram пока не подключён")
+    return fetch_apify("instagram", ch, state)
 
 
 PROVIDERS = {"youtube": fetch_youtube, "telegram": fetch_telegram, "tiktok": fetch_tiktok, "instagram": fetch_instagram}
@@ -299,6 +376,7 @@ def build_entry(ch, feed, now, settings):
         "silence_days": silence,
         "last_post": None, "last_title": "", "last_url": "",
         "days_since": None, "posts_7d": 0, "posts_30d": 0,
+        "last_views": None, "views_7d": None, "views_partial": False,
         "history": [0] * HISTORY_DAYS,
         "status": "unknown", "message": "",
     }
@@ -310,7 +388,9 @@ def build_entry(ch, feed, now, settings):
     last_dt = parse_iso(last["published"])
     days = (now - last_dt).total_seconds() / 86400
     entry.update(last_post=last["published"], last_title=last["title"], last_url=last["url"],
-                 days_since=round(days, 2))
+                 days_since=round(days, 2), last_views=last.get("views"))
+    gives_views = any(v.get("views") is not None for v in videos)   # платформа вообще отдаёт просмотры
+    views_7d = 0
     for v in videos:
         age = int((now - parse_iso(v["published"])).total_seconds() // 86400)
         if 0 <= age < HISTORY_DAYS:
@@ -318,6 +398,13 @@ def build_entry(ch, feed, now, settings):
             entry["posts_30d"] += 1
             if age < 7:
                 entry["posts_7d"] += 1
+                views_7d += v.get("views") or 0
+    if gives_views:
+        entry["views_7d"] = views_7d
+    # данные неполные, если мы получили максимум видео и самое старое из них всё ещё в пределах недели
+    limit = feed.get("limit")
+    oldest_age = (now - parse_iso(videos[-1]["published"])).total_seconds() / 86400
+    entry["views_partial"] = bool(limit) and len(videos) >= limit and oldest_age < 7
     if days >= dormant:
         entry["status"] = "dormant"
     elif days >= silence:
@@ -332,7 +419,8 @@ def error_entry(ch, status, message):
         "key": chan_key(ch), "platform": ch["platform"], "name": ch.get("name") or ch.get("handle", ""),
         "handle": ch.get("handle", ""), "url": "", "silence_days": ch.get("silence_days"),
         "last_post": None, "last_title": "", "last_url": "", "days_since": None,
-        "posts_7d": 0, "posts_30d": 0, "history": [0] * HISTORY_DAYS,
+        "posts_7d": 0, "posts_30d": 0, "last_views": None, "views_7d": None, "views_partial": False,
+        "history": [0] * HISTORY_DAYS,
         "status": status, "message": message,
     }
 
@@ -432,10 +520,12 @@ def demo_entries(now, settings):
             "silence_days": silence, "last_post": last_dt.isoformat(),
             "last_title": "Пример последнего видео", "last_url": "#",
             "days_since": round(last_days, 2), "posts_7d": sum(hist[-7:]), "posts_30d": sum(hist),
+            "last_views": None if platform == "instagram" and rng.random() < 0.4 else int(rng.uniform(800, 90000) * (4 if platform == "tiktok" else 1)),
+            "views_7d": int(sum(hist[-7:]) * rng.uniform(1500, 40000)), "views_partial": platform == "tiktok" and sum(hist[-7:]) >= 5,
             "history": hist, "status": status, "message": "",
         })
     out.append(error_entry({"platform": "tiktok", "name": "Ещё один TikTok", "handle": "@soon"},
-                           "unsupported", "TikTok пока не подключён"))
+                           "unsupported", "TikTok: добавьте секрет APIFY_TOKEN (инструкция в README)"))
     return out
 
 
@@ -466,7 +556,8 @@ def main():
 
     state = json.loads(STATE_FILE.read_text(encoding="utf-8")) if STATE_FILE.exists() else {}
     entries = []
-    prefetch_tiktok(cfg["channels"], state, settings, now)
+    for platform in APIFY:
+        prefetch_apify(platform, cfg["channels"], state, settings, now)
     for ch in cfg["channels"]:
         provider = PROVIDERS.get(ch["platform"])
         try:
