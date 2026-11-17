@@ -258,50 +258,6 @@
    "feed": null,
    "error": "Нет данных: профиль не найден, закрыт или без публикаций"
   },
-  "alpleland": {
-   "fetched_at": "2026-11-16T22:14:59.244829+00:00",
-   "feed": {
-    "title": "МортиГрад",
-    "videos": [
-     {
-      "id": "7708693581141314837",
-      "title": "ему плевать #cloudyvpn #rickandmorty #сыендукозвучка #морти #рикиморти",
-      "published": "2026-11-16T09:08:19+00:00",
-      "url": "https://www.tiktok.com/@alpleland/video/7708693581141314837",
-      "views": 1172
-     },
-     {
-      "id": "7708654162283629845",
-      "title": "#cloudyvpn #rickandmorty #сыендукозвучка #морти #рикиморти",
-      "published": "2026-11-16T06:35:17+00:00",
-      "url": "https://www.tiktok.com/@alpleland/video/7708654162283629845",
-      "views": 195
-     },
-     {
-      "id": "7708634971585400084",
-      "title": "о, тут есть автопилот😶‍🌫️ #cloudyvpn #rickandmorty #сыендукозвучка #морти #риким…",
-      "published": "2026-11-16T05:20:48+00:00",
-      "url": "https://www.tiktok.com/@alpleland/video/7708634971585400084",
-      "views": 999
-     },
-     {
-      "id": "7708607857268231444",
-      "title": "Морти самый умный в классе💥 #cloudyvpn #rickandmorty #сыендукозвучка #морти #рик…",
-      "published": "2026-11-16T03:35:44+00:00",
-      "url": "https://www.tiktok.com/@alpleland/video/7708607857268231444",
-      "views": 20500
-     },
-     {
-      "id": "7708371986426121473",
-      "title": "отец Джерри куколд #cloudyvpn #rickandmorty #сыендукозвучка #морти #рикиморти",
-      "published": "2026-11-15T12:20:16+00:00",
-      "url": "https://www.tiktok.com/@alpleland/video/7708371986426121473",
-      "views": 554
-     }
-    ],
-    "limit": 5
-   }
-  },
   "dmtstory5": {
    "fetched_at": "2026-11-16T22:14:59.244829+00:00",
    "feed": {
