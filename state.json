@@ -477,6 +477,57 @@
    "fetched_at": "2026-11-18T02:56:47.873298+00:00",
    "feed": null,
    "error": "Нет данных: профиль не найден, закрыт или без публикаций"
+  },
+  "arbuzkrug": {
+   "fetched_at": "2026-11-18T14:09:50.163995+00:00",
+   "feed": {
+    "title": "",
+    "videos": [
+     {
+      "id": "Df2k-VakWp2",
+      "title": "本日、apple と sonyは次世代のビジュアル体験を再定義する独占イベントを開催しました。playstation の革新なアプローチと最先端のデザインは、デ…",
+      "published": "2026-11-17T18:30:55+00:00",
+      "url": "https://www.instagram.com/p/Df2k-VakWp2/",
+      "views": null
+     },
+     {
+      "id": "Df2kTYaEQmc",
+      "title": "本日、apple と sonyは次世代のビジュアル体験を再定義する独占イベントを開催しました。playstation の革新なアプローチと最先端のデザインは、デ…",
+      "published": "2026-11-17T18:24:59+00:00",
+      "url": "https://www.instagram.com/p/Df2kTYaEQmc/",
+      "views": null
+     },
+     {
+      "id": "Df2j-fwFY9w",
+      "title": "本日、apple と sonyは次世代のビジュアル体験を再定義する独占イベントを開催しました。playstation の革新なアプローチと最先端のデザインは、デ…",
+      "published": "2026-11-17T18:21:54+00:00",
+      "url": "https://www.instagram.com/p/Df2j-fwFY9w/",
+      "views": null
+     },
+     {
+      "id": "Df2jjeKmShT",
+      "title": "本日、apple と sonyは次世代のビジュアル体験を再定義する独占イベントを開催しました。playstation の革新なアプローチと最先端のデザインは、デ…",
+      "published": "2026-11-17T18:18:14+00:00",
+      "url": "https://www.instagram.com/p/Df2jjeKmShT/",
+      "views": null
+     },
+     {
+      "id": "Df2d9pXjltE",
+      "title": "本日、apple と sonyは次世代のビジュアル体験を再定義する独占イベントを開催しました。playstation の革新なアプローチと最先端のデザインは、デ…",
+      "published": "2026-11-17T17:29:45+00:00",
+      "url": "https://www.instagram.com/p/Df2d9pXjltE/",
+      "views": null
+     },
+     {
+      "id": "Df2dJ2gikcc",
+      "title": "1241624495",
+      "published": "2026-11-17T17:22:20+00:00",
+      "url": "https://www.instagram.com/p/Df2dJ2gikcc/",
+      "views": null
+     }
+    ],
+    "limit": 7
+   }
   }
  }
 }
