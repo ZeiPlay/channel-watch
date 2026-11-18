@@ -394,6 +394,29 @@
     ],
     "limit": 5
    }
+  },
+  "kruzhochkipp": {
+   "fetched_at": "2026-11-18T15:22:41.402927+00:00",
+   "feed": {
+    "title": "kruzhochkipp",
+    "videos": [
+     {
+      "id": "7709468022276230422",
+      "title": "🤯🤯🤯",
+      "published": "2026-11-18T11:13:34+00:00",
+      "url": "https://www.tiktok.com/@kruzhochkipp/video/7709468022276230422",
+      "views": 137
+     },
+     {
+      "id": "7709314056397573398",
+      "title": "Вкусные тонкие блинчики 🥞 Ингредиенты · Молоко — 500 мл · Мука — 200 г · Яйца — …",
+      "published": "2026-11-18T01:16:27+00:00",
+      "url": "https://www.tiktok.com/@kruzhochkipp/video/7709314056397573398",
+      "views": 248
+     }
+    ],
+    "limit": 5
+   }
   }
  },
  "instagram_cache": {
