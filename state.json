@@ -48,6 +48,14 @@
   "instagram:randyoliver19544": {
    "last_post": "2026-11-17T07:24:37+00:00",
    "level": 1
+  },
+  "youtube:mryogurt_yt": {
+   "last_post": "2026-11-17T12:34:36+00:00",
+   "level": 1
+  },
+  "instagram:arbuzkrug": {
+   "last_post": "2026-11-17T18:30:55+00:00",
+   "level": 1
   }
  },
  "tiktok_cache": {
@@ -400,7 +408,7 @@
    }
   },
   "kruzhochkipp": {
-   "fetched_at": "2026-11-18T15:22:41.402927+00:00",
+   "fetched_at": "2026-11-19T19:39:02.596391+00:00",
    "feed": {
     "title": "kruzhochkipp",
     "videos": [
@@ -409,14 +417,14 @@
       "title": "🤯🤯🤯",
       "published": "2026-11-18T11:13:34+00:00",
       "url": "https://www.tiktok.com/@kruzhochkipp/video/7709468022276230422",
-      "views": 137
+      "views": 228
      },
      {
       "id": "7709314056397573398",
       "title": "Вкусные тонкие блинчики 🥞 Ингредиенты · Молоко — 500 мл · Мука — 200 г · Яйца — …",
       "published": "2026-11-18T01:16:27+00:00",
       "url": "https://www.tiktok.com/@kruzhochkipp/video/7709314056397573398",
-      "views": 248
+      "views": 249
      }
     ],
     "limit": 5
@@ -506,7 +514,7 @@
    "error": "Нет данных: профиль не найден, закрыт или без публикаций"
   },
   "arbuzkrug": {
-   "fetched_at": "2026-11-18T14:09:50.163995+00:00",
+   "fetched_at": "2026-11-19T19:39:02.596391+00:00",
    "feed": {
     "title": "",
     "videos": [
@@ -515,42 +523,42 @@
       "title": "本日、apple と sonyは次世代のビジュアル体験を再定義する独占イベントを開催しました。playstation の革新なアプローチと最先端のデザインは、デ…",
       "published": "2026-11-17T18:30:55+00:00",
       "url": "https://www.instagram.com/p/Df2k-VakWp2/",
-      "views": null
+      "views": 51724
      },
      {
       "id": "Df2kTYaEQmc",
       "title": "本日、apple と sonyは次世代のビジュアル体験を再定義する独占イベントを開催しました。playstation の革新なアプローチと最先端のデザインは、デ…",
       "published": "2026-11-17T18:24:59+00:00",
       "url": "https://www.instagram.com/p/Df2kTYaEQmc/",
-      "views": null
+      "views": 199042
      },
      {
       "id": "Df2j-fwFY9w",
       "title": "本日、apple と sonyは次世代のビジュアル体験を再定義する独占イベントを開催しました。playstation の革新なアプローチと最先端のデザインは、デ…",
       "published": "2026-11-17T18:21:54+00:00",
       "url": "https://www.instagram.com/p/Df2j-fwFY9w/",
-      "views": null
+      "views": 24942
      },
      {
       "id": "Df2jjeKmShT",
       "title": "本日、apple と sonyは次世代のビジュアル体験を再定義する独占イベントを開催しました。playstation の革新なアプローチと最先端のデザインは、デ…",
       "published": "2026-11-17T18:18:14+00:00",
       "url": "https://www.instagram.com/p/Df2jjeKmShT/",
-      "views": null
+      "views": 81041
      },
      {
       "id": "Df2d9pXjltE",
       "title": "本日、apple と sonyは次世代のビジュアル体験を再定義する独占イベントを開催しました。playstation の革新なアプローチと最先端のデザインは、デ…",
       "published": "2026-11-17T17:29:45+00:00",
       "url": "https://www.instagram.com/p/Df2d9pXjltE/",
-      "views": null
+      "views": 38576
      },
      {
       "id": "Df2dJ2gikcc",
       "title": "1241624495",
       "published": "2026-11-17T17:22:20+00:00",
       "url": "https://www.instagram.com/p/Df2dJ2gikcc/",
-      "views": null
+      "views": 6662
      }
     ],
     "limit": 7
