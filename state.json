@@ -56,6 +56,14 @@
   "instagram:arbuzkrug": {
    "last_post": "2026-11-17T18:30:55+00:00",
    "level": 1
+  },
+  "tiktok:kruzhochkipp": {
+   "last_post": "2026-11-18T11:13:34+00:00",
+   "level": 1
+  },
+  "tiktok:milachka2220": {
+   "last_post": "2026-11-12T12:43:56+00:00",
+   "level": 2
   }
  },
  "tiktok_cache": {
@@ -441,6 +449,50 @@
       "published": "2026-11-18T20:04:00+00:00",
       "url": "https://www.tiktok.com/@clay.history/video/7709604739268234517",
       "views": 531
+     }
+    ],
+    "limit": 5
+   }
+  },
+  "milachka2220": {
+   "fetched_at": "2026-11-20T11:49:24.737377+00:00",
+   "feed": {
+    "title": "Sonechka",
+    "videos": [
+     {
+      "id": "7707264822974418198",
+      "title": "#musteatinmycity #рекомендации",
+      "published": "2026-11-12T12:43:56+00:00",
+      "url": "https://www.tiktok.com/@milachka2220/video/7707264822974418198",
+      "views": 102900
+     },
+     {
+      "id": "7707171885007621398",
+      "title": "#musteatinmycity #рекомендации ❤️",
+      "published": "2026-11-12T06:43:21+00:00",
+      "url": "https://www.tiktok.com/@milachka2220/video/7707171885007621398",
+      "views": 35500
+     },
+     {
+      "id": "7707164963646786838",
+      "title": "#рекомендации❤",
+      "published": "2026-11-12T06:16:36+00:00",
+      "url": "https://www.tiktok.com/@milachka2220/video/7707164963646786838",
+      "views": 846500
+     },
+     {
+      "id": "7706920647586319638",
+      "title": "#рекомендации❤",
+      "published": "2026-11-11T14:28:23+00:00",
+      "url": "https://www.tiktok.com/@milachka2220/video/7706920647586319638",
+      "views": 34100
+     },
+     {
+      "id": "7706920345235623190",
+      "title": "#рекомендации❤",
+      "published": "2026-11-11T14:27:09+00:00",
+      "url": "https://www.tiktok.com/@milachka2220/video/7706920345235623190",
+      "views": 4600000
      }
     ],
     "limit": 5
