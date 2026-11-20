@@ -31,7 +31,7 @@
   },
   "youtube:lenti0011": {
    "last_post": "2026-11-13T18:54:09+00:00",
-   "level": 1
+   "level": 2
   },
   "instagram:admin.comvgorle": {
    "last_post": "2026-11-14T00:19:18+00:00",
@@ -55,10 +55,6 @@
   },
   "instagram:arbuzkrug": {
    "last_post": "2026-11-17T18:30:55+00:00",
-   "level": 1
-  },
-  "tiktok:kruzhochkipp": {
-   "last_post": "2026-11-18T11:13:34+00:00",
    "level": 1
   },
   "tiktok:milachka2220": {
@@ -416,10 +412,17 @@
    }
   },
   "kruzhochkipp": {
-   "fetched_at": "2026-11-19T19:39:02.596391+00:00",
+   "fetched_at": "2026-11-20T20:29:09.327804+00:00",
    "feed": {
     "title": "kruzhochkipp",
     "videos": [
+     {
+      "id": "7710229886014721282",
+      "title": "socoovgoorormrnr",
+      "published": "2026-11-20T12:29:53+00:00",
+      "url": "https://www.tiktok.com/@kruzhochkipp/video/7710229886014721282",
+      "views": 168
+     },
      {
       "id": "7709468022276230422",
       "title": "🤯🤯🤯",
@@ -439,16 +442,23 @@
    }
   },
   "clay.history": {
-   "fetched_at": "2026-11-19T19:53:02.590976+00:00",
+   "fetched_at": "2026-11-20T20:29:09.327804+00:00",
    "feed": {
     "title": "Clay History",
     "videos": [
+     {
+      "id": "7710253497026891014",
+      "title": "Видео без подписи",
+      "published": "2026-11-20T14:01:28+00:00",
+      "url": "https://www.tiktok.com/@clay.history/video/7710253497026891014",
+      "views": 303
+     },
      {
       "id": "7709604739268234517",
       "title": "ЧТО ДЕЛАТЬ ЕСЛИ ТЫ ЗАСТРЯЛ В ТЦ ?АНИМАЦИЯ #fyp #animation",
       "published": "2026-11-18T20:04:00+00:00",
       "url": "https://www.tiktok.com/@clay.history/video/7709604739268234517",
-      "views": 531
+      "views": 535
      }
     ],
     "limit": 5
@@ -582,7 +592,7 @@
    "error": "Нет данных: профиль не найден, закрыт или без публикаций"
   },
   "arbuzkrug": {
-   "fetched_at": "2026-11-19T19:39:02.596391+00:00",
+   "fetched_at": "2026-11-20T20:29:09.327804+00:00",
    "feed": {
     "title": "",
     "videos": [
@@ -591,42 +601,42 @@
       "title": "本日、apple と sonyは次世代のビジュアル体験を再定義する独占イベントを開催しました。playstation の革新なアプローチと最先端のデザインは、デ…",
       "published": "2026-11-17T18:30:55+00:00",
       "url": "https://www.instagram.com/p/Df2k-VakWp2/",
-      "views": 51724
+      "views": 54019
      },
      {
       "id": "Df2kTYaEQmc",
       "title": "本日、apple と sonyは次世代のビジュアル体験を再定義する独占イベントを開催しました。playstation の革新なアプローチと最先端のデザインは、デ…",
       "published": "2026-11-17T18:24:59+00:00",
       "url": "https://www.instagram.com/p/Df2kTYaEQmc/",
-      "views": 199042
+      "views": 212211
      },
      {
       "id": "Df2j-fwFY9w",
       "title": "本日、apple と sonyは次世代のビジュアル体験を再定義する独占イベントを開催しました。playstation の革新なアプローチと最先端のデザインは、デ…",
       "published": "2026-11-17T18:21:54+00:00",
       "url": "https://www.instagram.com/p/Df2j-fwFY9w/",
-      "views": 24942
+      "views": 27936
      },
      {
       "id": "Df2jjeKmShT",
       "title": "本日、apple と sonyは次世代のビジュアル体験を再定義する独占イベントを開催しました。playstation の革新なアプローチと最先端のデザインは、デ…",
       "published": "2026-11-17T18:18:14+00:00",
       "url": "https://www.instagram.com/p/Df2jjeKmShT/",
-      "views": 81041
+      "views": 84879
      },
      {
       "id": "Df2d9pXjltE",
       "title": "本日、apple と sonyは次世代のビジュアル体験を再定義する独占イベントを開催しました。playstation の革新なアプローチと最先端のデザインは、デ…",
       "published": "2026-11-17T17:29:45+00:00",
       "url": "https://www.instagram.com/p/Df2d9pXjltE/",
-      "views": 38576
+      "views": 40840
      },
      {
       "id": "Df2dJ2gikcc",
       "title": "1241624495",
       "published": "2026-11-17T17:22:20+00:00",
       "url": "https://www.instagram.com/p/Df2dJ2gikcc/",
-      "views": 6662
+      "views": 7044
      }
     ],
     "limit": 7
