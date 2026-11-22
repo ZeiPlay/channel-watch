@@ -64,6 +64,10 @@
   "tiktok:seriali001": {
    "last_post": "2026-11-19T18:25:28+00:00",
    "level": 1
+  },
+  "tiktok:cosmonaut999": {
+   "last_post": "2026-11-19T23:55:44+00:00",
+   "level": 1
   }
  },
  "tiktok_cache": {
@@ -416,7 +420,7 @@
    }
   },
   "kruzhochkipp": {
-   "fetched_at": "2026-11-20T20:29:09.327804+00:00",
+   "fetched_at": "2026-11-22T01:23:57.996092+00:00",
    "feed": {
     "title": "kruzhochkipp",
     "videos": [
@@ -425,7 +429,7 @@
       "title": "socoovgoorormrnr",
       "published": "2026-11-20T12:29:53+00:00",
       "url": "https://www.tiktok.com/@kruzhochkipp/video/7710229886014721282",
-      "views": 168
+      "views": 214
      },
      {
       "id": "7709468022276230422",
@@ -446,7 +450,7 @@
    }
   },
   "clay.history": {
-   "fetched_at": "2026-11-20T20:29:09.327804+00:00",
+   "fetched_at": "2026-11-22T01:23:57.996092+00:00",
    "feed": {
     "title": "Clay History",
     "videos": [
@@ -455,14 +459,14 @@
       "title": "Видео без подписи",
       "published": "2026-11-20T14:01:28+00:00",
       "url": "https://www.tiktok.com/@clay.history/video/7710253497026891014",
-      "views": 303
+      "views": 311
      },
      {
       "id": "7709604739268234517",
       "title": "ЧТО ДЕЛАТЬ ЕСЛИ ТЫ ЗАСТРЯЛ В ТЦ ?АНИМАЦИЯ #fyp #animation",
       "published": "2026-11-18T20:04:00+00:00",
       "url": "https://www.tiktok.com/@clay.history/video/7709604739268234517",
-      "views": 535
+      "views": 539
      }
     ],
     "limit": 5
@@ -575,7 +579,7 @@
    "error": "Нет данных: профиль не найден, закрыт или без публикаций"
   },
   "arbuzkrug": {
-   "fetched_at": "2026-11-20T20:29:09.327804+00:00",
+   "fetched_at": "2026-11-22T01:23:57.996092+00:00",
    "feed": {
     "title": "",
     "videos": [
@@ -584,42 +588,42 @@
       "title": "本日、apple と sonyは次世代のビジュアル体験を再定義する独占イベントを開催しました。playstation の革新なアプローチと最先端のデザインは、デ…",
       "published": "2026-11-17T18:30:55+00:00",
       "url": "https://www.instagram.com/p/Df2k-VakWp2/",
-      "views": 54019
+      "views": null
      },
      {
       "id": "Df2kTYaEQmc",
       "title": "本日、apple と sonyは次世代のビジュアル体験を再定義する独占イベントを開催しました。playstation の革新なアプローチと最先端のデザインは、デ…",
       "published": "2026-11-17T18:24:59+00:00",
       "url": "https://www.instagram.com/p/Df2kTYaEQmc/",
-      "views": 212211
+      "views": null
      },
      {
       "id": "Df2j-fwFY9w",
       "title": "本日、apple と sonyは次世代のビジュアル体験を再定義する独占イベントを開催しました。playstation の革新なアプローチと最先端のデザインは、デ…",
       "published": "2026-11-17T18:21:54+00:00",
       "url": "https://www.instagram.com/p/Df2j-fwFY9w/",
-      "views": 27936
+      "views": null
      },
      {
       "id": "Df2jjeKmShT",
       "title": "本日、apple と sonyは次世代のビジュアル体験を再定義する独占イベントを開催しました。playstation の革新なアプローチと最先端のデザインは、デ…",
       "published": "2026-11-17T18:18:14+00:00",
       "url": "https://www.instagram.com/p/Df2jjeKmShT/",
-      "views": 84879
+      "views": null
      },
      {
       "id": "Df2d9pXjltE",
       "title": "本日、apple と sonyは次世代のビジュアル体験を再定義する独占イベントを開催しました。playstation の革新なアプローチと最先端のデザインは、デ…",
       "published": "2026-11-17T17:29:45+00:00",
       "url": "https://www.instagram.com/p/Df2d9pXjltE/",
-      "views": 40840
+      "views": null
      },
      {
       "id": "Df2dJ2gikcc",
       "title": "1241624495",
       "published": "2026-11-17T17:22:20+00:00",
       "url": "https://www.instagram.com/p/Df2dJ2gikcc/",
-      "views": 7044
+      "views": null
      }
     ],
     "limit": 7
